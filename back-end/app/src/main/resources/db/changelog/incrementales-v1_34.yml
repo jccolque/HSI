@@ -140,7 +140,7 @@ databaseChangeLog:
           changes:
               - sql:
                     sql: |-
-                        CREATE INDEX "IDX_person_first-name" ON person (UPPER(first_name));
+                        CREATE INDEX IF NOT EXISTS "IDX_person_first-name" ON person (UPPER(first_name));
                         
     - changeSet:
           id: createIndexLastName-person
@@ -149,7 +149,7 @@ databaseChangeLog:
           changes:
               - sql:
                     sql: |-
-                        CREATE INDEX "IDX_person_last-name" ON person (UPPER(last_name));
+                        CREATE INDEX IF NOT EXISTS "IDX_person_last-name" ON person (UPPER(last_name));
                         
     - changeSet:
           id: createIndexIdentificationNumber-person
@@ -158,4 +158,4 @@ databaseChangeLog:
           changes:
               - sql:
                     sql: |-
-                        CREATE INDEX "IDX_person_identification-number" ON person (identification_number);
+                        CREATE INDEX IF NOT EXISTS "IDX_person_identification-number" ON person (identification_number);
